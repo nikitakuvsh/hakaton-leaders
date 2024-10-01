@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../../main.css">
+    <link rel="stylesheet" href="../header.css">
+    <link rel="stylesheet" href="../product.css">
+    <link rel="stylesheet" href="../../reset.css">
+    <link rel="stylesheet" href="create.css">   
+</head>
+<body>
+    <header class="header">
+        <div class="fixed-container">
+            <div class="header__inner">
+                <div class="header__logo">
+                    <a href=""><img class="header__logo--image" src="" alt="Логотип"></a>
+                </div>
+                <div class="header__nav">
+                    <button class="menu-toggle" type="button">&#9776;</button>
+                    <nav class="nav-menu">
+                        <ul class="header__menu">
+                            <li class="header__menu--item"><a class="header__menu--link" href="#">Меню</a></li>
+                            <li class="header__menu--item"><a class="header__menu--link" href="#">Страховой <br> продукт-управление</a></li>
+                            <li class="header__menu--item"><a class="header__menu--link" href="#">Страховой <br> продукт-продажи</a></li>
+                            <li class="header__menu--item"><a class="header__menu--link" href="#">Страховые <br> договора</a></li>
+                        </ul>
+                    </nav>
+                    <button class="header__menu--button button-black" type="button">Отчёты</button>
+                </div>
+            </div>
+        </div>
+    </header>
+    
+    <main class="main">
+        <div class="fixed-container">
+            <div class="main__inner">
+                <div class="main__commencement">
+                    <h2 class="main__title">Создание нового страхового продукта</h2>
+                </div>
+                <div class="main__commencement--under-line"></div>
+            </div>
+
+            <div class="card">
+                <form class="form form--create-product">
+                    <div class="form__input-container">
+                        <label class="form__label" for="product-title">Название</label>
+                        <input class="form__input form__input--title" type="text" name="product-title" required>
+                    </div>
+                
+                    <div class="form__input-container">
+                        <label class="form__label" for="product-descr">Описание</label>
+                        <textarea class="form__input form__input--descr" name="product-descr" required></textarea>
+                    </div>
+                
+                    <div class="form__select-container">
+                        <label class="form__label" for="business-line">Линия бизнеса</label>
+                        <select name="business-line" id="business-line" class="form__select">
+                            <option value="not-line">Не выбрана</option>
+                            <option value="line1">Линия 1</option>
+                            <option value="line2">Линия 2</option>
+                        </select>
+                        <button class="form__select-icon" id="select-icon-button" type="button">
+                            <svg class="form__arrow-icon" xmlns="http://www.w3.org/2000/svg" width="45" height="34" viewBox="0 -5 45 34" fill="none">
+                                <ellipse cx="26.5" cy="14" rx="14.5" ry="14" fill="#D9D9D9" />
+                                <path class="form__arrow-path" d="M26.5 22L20.0048 9.25L32.9952 9.25L26.5 22Z" fill="black" />
+                            </svg>
+                        </button>
+                    </div>
+                
+                    <div class="form__radio-container">
+                        <div class="form__radio-wrapper">
+                            <label class="form__toggle-label" for="status">Активный/неактивный</label>
+                            <div class="form__toggle-button">
+                                <input class="form__radio-input" type="checkbox" id="status" name="status">
+                                <span class="form__slider"></span>
+                            </div>
+                        </div>
+                    </div>
+                
+                    <div class="form__risks-container">
+                        <label class="form__label" for="risks-table">Риски</label>
+                        <table class="form__risks-table">
+                            <tbody id="risks-body">
+                                <tr>
+                                    <td><textarea class="form__table-input"></textarea></td>
+                                    <td><textarea class="form__table-input"></textarea></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <button class="form__add-row" id="add-row" type="button">Добавить строку</button>
+                    </div>
+                
+                    <div class="form__metadata-container">
+                        <button class="form__metadata-button" type="button">Метаданные</button>
+                    </div>
+                
+                    <div class="form__input-container">
+                        <label class="form__label" for="formula">Формула</label>
+                        <input class="form__input form__input--formula" type="text" name="formula" required>
+                    </div>                
+
+                    <div class="button-submit-container">
+                        <button class="button__submit button--submit" type="button">Отправить</button>
+                        <button class="button__submit button-black button--cancel" type="button">Отмена</button>
+                    </div>
+                </form>
+            </div>      
+        </div>
+    </main>
+
+    <script src="create.js"></script>
+</body>
+</html>
