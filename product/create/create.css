@@ -9,17 +9,6 @@ input:focus, textarea:focus {
     outline: none;
 }
 
-.card-edit {
-    max-width: 100%;
-    border-radius: 24px;
-    border: 2px solid #E6E6E6;
-    background: #FAFAF5;
-    padding-top: 28px;
-    padding-left: 27px;
-    padding-right: 17px;
-    overflow: hidden;
-}
-
 .form {
     margin-bottom: 20px;
 }
@@ -327,8 +316,8 @@ input:focus, textarea:focus {
 .reward-container input[type="radio"] {
     appearance: none;
     -webkit-appearance: none;
-    width: 29px;
-    height: 29px;
+    max-width: 29px;
+    max-height: 29px;
     border-radius: 50%;
     background-color: #D9D9D9;
     display: inline-block;
@@ -343,11 +332,8 @@ input:focus, textarea:focus {
 }
 
 .reward-container input[type="radio"]:checked::before {
-    content: '';
+    content: '✔';
     display: block;
-    width: 29px;
-    height: 29px;
-    background-color: green;
     border-radius: 50%;
     position: absolute;
     top: 50%;
@@ -372,4 +358,48 @@ input:focus, textarea:focus {
 
 .button--cancel {
     padding: 21.5px 51px 20.5px 51px;
+}
+
+@media (max-width: 1339px) {
+    .form__risks-table {
+        width: 100%;
+    }
+
+    .form__risks-table th,
+    .form__risks-table td {
+        padding: 10px;
+    }
+
+    .form__risks-table th {
+        font-size: 14px;
+        white-space: nowrap;
+    }
+
+    .form__risks-table td {
+        font-size: 14px;
+    }
+
+    .form__table-input {
+        font-size: 14px;
+        padding: 8px;
+        min-height: 30px;
+    }
+
+    .form__risks-container {
+        padding: 10px;
+    }
+
+    .form__risks-container button {
+        font-size: 18px;
+        padding: 6px 10px;
+    }
+
+    .form__add-row {
+        margin-top: 15px;
+        font-size: 18px;
+    }
+
+    .form__td-remove-button {
+        font-size: 18px;
+    }
 }
