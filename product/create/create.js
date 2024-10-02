@@ -7,7 +7,25 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Таблица
+    // Селект
+    const select = document.querySelector('.form__select');
+    const icon = document.getElementById('select-icon-button');
+    let isOpen = false;
+    
+    select.onclick = function () {
+        isOpen = !isOpen; // Переключаем флаг состояния
+        if (isOpen) {
+            icon.classList.add('rotate-icon');
+        } else {
+            icon.classList.remove('rotate-icon');
+        }
+    };
+    
+    select.onblur = function () {
+        isOpen = false; // Закрываем select при потере фокуса
+        icon.classList.remove('rotate-icon');
+    };
+    
     document.querySelectorAll('.form__table-input').forEach(textarea => {
         textarea.addEventListener('input', () => {
             textarea.style.height = 'auto'; // Сначала сбрасываем высоту
@@ -20,12 +38,23 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // Функция для добавления новой строки
     addButton.addEventListener('click', () => {
+        const lastRow = risksBody.querySelector('tr:last-child'); // Последняя строка
         const newRow = document.createElement('tr');
+    
+        // Копируем данные из предыдущей строки
+        const lastTextareas = lastRow.querySelectorAll('textarea');
+        const lastInputs = lastRow.querySelectorAll('input[type="number"]');
+        const lastCheckbox = lastRow.querySelector('input[type="checkbox"]');
+    
         newRow.innerHTML = `
-            <td><textarea class="form__table-input" type="text"></textarea></td>
-            <td><textarea class="form__table-input" type="text"></textarea></td>
+            <td><textarea class="form__table-input">${lastTextareas[0].value}</textarea></td>
+            <td><textarea class="form__table-input">${lastTextareas[1].value}</textarea></td>
+            <td><input class="form__table-input" type="number" value="${lastInputs[0].value}"></td>
+            <td><input class="form__table-input" type="number" value="${lastInputs[1].value}"></td>
+            <td><input type="checkbox" class="form__table-input" ${lastCheckbox.checked ? 'checked' : ''}></td>
             <td class="form__td-remove-button"><button class="form__remove-row">-</button></td>
         `;
+    
         risksBody.appendChild(newRow);
     
         // Обработчик для textarea в новой строке
@@ -37,17 +66,18 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
     
-        // Добавляем событие для удаления строки при клике на ячейку
-        const removeCell = newRow.querySelector('.form__td-remove-button');
-        removeCell.addEventListener('click', () => {
+        // Добавляем событие для удаления строки при клике на кнопку
+        const removeButton = newRow.querySelector('.form__remove-row');
+        removeButton.addEventListener('click', () => {
             newRow.remove();
         });
     });
     
-    // Обработчик события для существующих строк
+    // Обработчик для удаления существующих строк
     document.querySelectorAll('.form__td-remove-button').forEach(cell => {
         cell.addEventListener('click', () => {
             cell.closest('tr').remove();
         });
     });
+    
 });

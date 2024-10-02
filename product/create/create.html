@@ -15,8 +15,12 @@
         <div class="fixed-container">
             <div class="header__inner">
                 <div class="header__logo">
-                    <a href=""><img class="header__logo--image" src="" alt="Логотип"></a>
+                    <a href=""><img class="header__logo--image logo-team logo-big" src="../../product/img/logo-team.png" alt="Логотип команды"></a>
+                    <a href=""><img class="header__logo--image logo-company logo-big" src="../../product/img/logo-company.png" alt="Логотип компании"></a>
+                    <a href=""><img class="header__logo--image logo-team logo-small" src="../../product/img/logo-team-icon.svg" alt="Логотип команды"></a>
+                    <a href=""><img class="header__logo--image logo-company logo-small" src="../../product/img/logo-company-icon.svg" alt="Логотип компании"></a>
                 </div>
+
                 <div class="header__nav">
                     <button class="menu-toggle" type="button">&#9776;</button>
                     <nav class="nav-menu">
@@ -42,7 +46,7 @@
                 <div class="main__commencement--under-line"></div>
             </div>
 
-            <div class="card">
+            <div class="card-edit">
                 <form class="form form--create-product">
                     <div class="form__input-container">
                         <label class="form__label" for="product-title">Название</label>
@@ -56,17 +60,17 @@
                 
                     <div class="form__select-container">
                         <label class="form__label" for="business-line">Линия бизнеса</label>
-                        <select name="business-line" id="business-line" class="form__select">
-                            <option value="not-line">Не выбрана</option>
-                            <option value="line1">Линия 1</option>
-                            <option value="line2">Линия 2</option>
+                        <select class="form__select" name="business-line" id="business-line">
+                            <option class="select__option" value="not-line">Не выбрана</option>
+                            <option class="select__option" value="line1">Линия 1</option>
+                            <option class="select__option" value="line2">Линия 2</option>
                         </select>
-                        <button class="form__select-icon" id="select-icon-button" type="button">
+                        <span class="form__select-icon" id="select-icon-button" type="button">
                             <svg class="form__arrow-icon" xmlns="http://www.w3.org/2000/svg" width="45" height="34" viewBox="0 -5 45 34" fill="none">
                                 <ellipse cx="26.5" cy="14" rx="14.5" ry="14" fill="#D9D9D9" />
                                 <path class="form__arrow-path" d="M26.5 22L20.0048 9.25L32.9952 9.25L26.5 22Z" fill="black" />
                             </svg>
-                        </button>
+                        </span>
                     </div>
                 
                     <div class="form__radio-container">
@@ -82,10 +86,23 @@
                     <div class="form__risks-container">
                         <label class="form__label" for="risks-table">Риски</label>
                         <table class="form__risks-table">
+                            <thead>
+                                <tr>
+                                    <th><label for="risk-key">KEY</label></th>
+                                    <th><label for="risk-description">Описание</label></th>
+                                    <th><label for="basic compensation">Базовый тариф</label></th>
+                                    <th><label for="basic compensation">Базовая компенсация</label></th>
+                                    <th><label for="can-change">Изменяемый</label></th>
+                                </tr>
+                            </thead>
+                            
                             <tbody id="risks-body">
                                 <tr>
-                                    <td><textarea class="form__table-input"></textarea></td>
-                                    <td><textarea class="form__table-input"></textarea></td>
+                                    <td><textarea class="form__table-input" name="risk-key"></textarea></td>
+                                    <td><textarea class="form__table-input" name="risk-description"></textarea></td>
+                                    <td><input class="form__table-input" type="number" name="start-tarif"></td>
+                                    <td><input class="form__table-input" type="number" name="basic compensation"></td>
+                                    <td><input type="checkbox" value="can-change" name="can-change" class="form__table-input"></td>
                                 </tr>
                             </tbody>
                         </table>
@@ -99,8 +116,16 @@
                     <div class="form__input-container">
                         <label class="form__label" for="formula">Формула</label>
                         <input class="form__input form__input--formula" type="text" name="formula" required>
-                    </div>                
-
+                    </div>
+                    
+                    <div class="reward-container">
+                        <h2 class="reward__title">Вознаграждение</h2>
+                        <label class="reward__label" for="fixed-rew">Фиксированное</label>
+                        <input class="reward__radio-button" type="radio" name="reward-type" id="fixed-rew" value="fixed">
+                        <label class="reward__label" for="percentage-rew">Процентное</label>
+                        <input class="reward__radio-button" type="radio" name="reward-type" id="percentage-rew" value="percentage">
+                    </div>
+                    
                     <div class="button-submit-container">
                         <button class="button__submit button--submit" type="button">Отправить</button>
                         <button class="button__submit button-black button--cancel" type="button">Отмена</button>
@@ -109,7 +134,6 @@
             </div>      
         </div>
     </main>
-
     <script src="create.js"></script>
 </body>
 </html>

@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const card = button.closest('.card');
             const id = card.getAttribute('data-id');
     
-            // Выполняем POST-запрос на /product/create/{id}
+            // POST-запрос на /product/create/{id}
             fetch(`/product/create/${id}`, {
                 method: 'POST',
                 headers: {
@@ -30,7 +30,6 @@ document.addEventListener('DOMContentLoaded', () => {
             .then(response => response.json())
             .then(data => {
                 if (data.redirect) {
-                    // Перенаправляем на /product/edit/{new_id} после успешного запроса
                     window.location.href = `/product/edit/${data.redirect}`;
                 }
             })
@@ -38,24 +37,5 @@ document.addEventListener('DOMContentLoaded', () => {
                 console.error('Error:', error);
             });
         });
-    });
-    
-
-
-    //Проверка запроса
-    // document.querySelectorAll('.button-copy').forEach(button => {
-    //     button.addEventListener('click', () => {
-    //         const card = button.closest('.card');
-    //         const id = card.getAttribute('data-id');
-    
-    //         // Имитируем POST-запрос с использованием setTimeout
-    //         setTimeout(() => {
-    //             const fakeResponse = { redirect: 5 };  // Пример ответа сервера
-    
-    //             if (fakeResponse.redirect) {
-    //                 window.location.href = `/product/edit/${fakeResponse.redirect}`;
-    //             }
-    //         }, 1000); // задержка для имитации запроса
-    //     });
-    // });    
+    });  
 });
