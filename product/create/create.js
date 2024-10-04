@@ -80,4 +80,14 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
     
+    document.querySelectorAll('.form__input-container').forEach(container => {
+        const label = container.querySelector('.form__label');
+        const input = container.querySelector('.form__input');
+    
+        const labelWidth = label.offsetWidth;  // Получаем ширину label
+        const paddingLeft = labelWidth + 25;   // Добавляем отступ 15px после текста
+    
+        input.style.paddingLeft = `${paddingLeft}px`;  // Устанавливаем новый padding-left
+    });
+    
 });

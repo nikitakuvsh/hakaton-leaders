@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./calculate.css">
+    <link rel="stylesheet" href="../header.css">
+    <link rel="stylesheet" href="../product.css">
+    <link rel="stylesheet" href="../create/create.css">
+    <link rel="stylesheet" href="../../main.css">
+    <link rel="stylesheet" href="../../reset.css">
+    
+</head>
+<body>
+    <div class="main__inner">
+        <div class="main__commencement">
+            <h2 class="main__title">@ViewData["Title"]</h2>
+        </div>
+        <div class="main__commencement--under-line"></div>
+    </div>
+    
+    <div class="card-create main-card-inner">
+        <form class="form form--create-product">
+            <div class="form__input-container">
+                <label class="form__label" for="product-title">Название</label>
+                <input class="form__input form__input--title" type="text" name="product-title" required>
+            </div>
+        
+            <div class="form__input-container">
+                <label class="form__label" for="product-descr">Описание</label>
+                <textarea class="form__input form__input--descr" name="product-descr" required></textarea>
+            </div>
+        
+            <div class="form__select-container">
+                <label class="form__label" for="business-line">Линия бизнеса</label>
+                <select class="form__select" name="business-line" id="business-line">
+                    @if (Model.LobsDto.Any()){
+                        @foreach (var lob in Model.LobsDto){
+                            <option class="select__option" value="@lob.Id">@lob.Name</option>
+                        }
+                    }
+                </select>
+                <button class="form__select-icon" id="select-icon-button" type="button">
+                    <svg class="form__arrow-icon" xmlns="http://www.w3.org/2000/svg" width="45" height="34" viewBox="0 -5 45 34" fill="none">
+                        <ellipse cx="26.5" cy="14" rx="14.5" ry="14" fill="#D9D9D9" />
+                        <path class="form__arrow-path" d="M26.5 22L20.0048 9.25L32.9952 9.25L26.5 22Z" fill="black" />
+                    </svg>
+                </button>
+            </div>
+        
+            <div class="form__radio-container">
+                <div class="form__radio-wrapper">
+                    <label class="form__toggle-label" for="status">Активный/неактивный</label>
+                    <div class="form__toggle-button">
+                        <input class="form__radio-input" type="checkbox" id="status" name="status">
+                        <span class="form__slider"></span>
+                    </div>
+                </div>
+            </div>
+        
+            <div class="form__risks-container table-wrapper">
+                <label class="form__label" for="risks-table">Риски</label>
+                <table class="create-table">
+                    <thead>
+                        <tr>
+                            <th><label for="risk-key">KEY</label></th>
+                            <th><label for="risk-description">Описание</label></th>
+                            <th><label for="basic compensation">Базовый тариф</label></th>
+                            <th><label for="basic compensation">Базовая компенсация</label></th>
+                            <th><label for="can-change">Изменяемый</label></th>
+                        </tr>
+                    </thead>
+                    
+                    <tbody id="risks-body">
+                        <tr>
+                            <td><textarea class="form__table-input" name="risk-key">Р1</textarea></td>
+                            <td><textarea class="form__table-input" name="risk-description"></textarea></td>
+                            <td><input class="form__table-input" type="number" name="start-tarif"></td>
+                            <td><input class="form__table-input" type="number" name="basic compensation"></td>
+                            <td><input type="checkbox" value="can-change" name="can-change" class="form__table-input"></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="buttons-under-table__container">
+                    <button class="form__add-row" id="add-row" type="button">Добавить строку</button>
+                    <button class="form__remove-row" id="remove-row" type="button">Удалить строку</button>
+                </div>
+            </div>
+
+            <div class="details-container">
+                <h2 class="details__title">Детали</h2>
+                <div class="details-container--flex">
+                    <div class="form__select-container form--inline-container">
+                        <label class="form__label" for="age-and-stage">Возраст и стаж</label>
+                        <select class="form__select" name="age-and-stage" id="age-and-stage">
+                                <option class="select__option" value="@lob.Id">@lob.Name</option>
+                        </select>
+                        <button class="form__select-icon" id="select-icon-button" type="button">
+                            <svg class="form__arrow-icon" xmlns="http://www.w3.org/2000/svg" width="45" height="34" viewBox="0 -5 45 34" fill="none">
+                                <ellipse cx="26.5" cy="14" rx="14.5" ry="14" fill="#D9D9D9" />
+                                <path class="form__arrow-path" d="M26.5 22L20.0048 9.25L32.9952 9.25L26.5 22Z" fill="black" />
+                            </svg>
+                        </button>
+                    </div>
+
+                    <div class="form__input-container">
+                        <label class="form__label" for="bonus-coefficient">Коэффицент, бонус</label>
+                        <input class="form__input form__input--title" type="text" name="bonus-coefficient" id="bonus-coefficient" required>
+                    </div>
+                </div>
+
+                <div class="form__select-container">
+                    <label class="form__label" for="place-of-use">Место использования</label>
+                    <select class="form__select" name="place-of-use" id="place-of-use">
+                            <option class="select__option" value="@lob.Id">@lob.Name</option>
+                    </select>
+                    <button class="form__select-icon" id="select-icon-button" type="button">
+                        <svg class="form__arrow-icon" xmlns="http://www.w3.org/2000/svg" width="45" height="34" viewBox="0 -5 45 34" fill="none">
+                            <ellipse cx="26.5" cy="14" rx="14.5" ry="14" fill="#D9D9D9" />
+                            <path class="form__arrow-path" d="M26.5 22L20.0048 9.25L32.9952 9.25L26.5 22Z" fill="black" />
+                        </svg>
+                    </button>
+                </div>
+
+                <div class="details__container--flex">
+                    <div class="form__input-container">
+                        <label class="form__label" for="insurance-premium">Страховая премия</label>
+                        <input class="form__input form__input--title form__input--fix-padding" type="text" name="insurance-premium" id="insurance-premium" required>
+                    </div>
+                    <button class="details__checkout-button">Оформить</button>
+                </div>
+
+                <div class="button-submit-container">
+                    <button class="button__submit button--submit-draft" type="button">Сохранить <br> как черновик</button>
+                    <button class="button__submit button--submit" type="button">Просмотр</button>
+                    <button class="button__submit button-black button--cancel" type="button">Назад</button>
+                </div>
+
+            </div>
+        </form>
+    </div>
+<script src="../create/create.js"></script>
+</body>
+</html>
+
+
+
+

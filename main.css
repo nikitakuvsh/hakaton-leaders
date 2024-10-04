@@ -10,6 +10,8 @@
     border: none;
     border-radius: 8px;
     font-family: 'Inter';
+	max-width: 152px;
+	max-height: 63px;
 }
 
 p, span, ul, li, a, input, button, label {
@@ -65,17 +67,17 @@ h1, h2, h3, h4, h5 {
     overflow: hidden;
 }
 
+.hidden {
+    display: none;
+}
+
+.visible {
+    display: block;
+}
+
 @font-face {
     font-family: 'Inter';
     src: url('fonts/Inter-Regular.otf') format('opentype');
     font-weight: normal;
     font-size: normal;
 }
-
-@font-face {
-    font-family: 'Newsreader';
-    src: url('fonts/Newsreader.ttf') format('truetype');
-    font-weight: normal;
-    font-size: normal;
-}
-
