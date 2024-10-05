@@ -1,43 +1,40 @@
-.details-container {
-    font-size: 20px;
-    font-weight: 550;
-    margin-top: 35px;
-    margin-left: 15px;
+.calc__risk-title, .calc__risk-compensation, .calc__risk-compensation p, .check-risk, .compensation-input,
+.input__label, .input__input-box, .elem__checkbox, .elem__title,
+.select__label, .input__select-box {
+    display: inline-block;
 }
 
-.form__select-container, .form__input-container {
-    min-width: 150px;
+.risk__elem, .insurance-premium, .insurance-commission {
+    display: flex;
 }
 
-.details-container .form__input-container {
-    margin-bottom: 0;
-    max-width: 60%;
+.calc__risk-title {
+    margin-right: 15px;
 }
 
-.details__title {
+.calc__input, .calc__select{
+    border: 1px solid black;
+    border-radius: 5px;
+    padding-left: 5px;
+    margin-left: 10px;
+}
+
+.calc__input {
+    max-width: 50%;
+}
+
+.risk__elem, .details__elem {
+    margin-top: 5px;
+}
+
+.check-risk-hidden {
+    display: none;
+}
+
+.details-container__title, .risk-container__title {
+    font-weight: 700;
+}
+
+.calc__details-container, .calc__risk-container {
     margin-bottom: 20px;
 }
-
-.details-container--flex {
-    display: flex;
-    gap: 12px;
-    align-items: flex-start;
-}
-
-.details-container .form__select-container {
-    margin-bottom: 25px;
-}
-
-.details-container .form__input-container {
-    margin-bottom: 0;
-    display: inline-flex;
-}
-
-.details__checkout-button {
-    margin-left: 11px;
-	border-radius: 20px;
-	border: 2px solid rgba(0, 0, 0, 0.06);
-	background: #FFF;
-	padding: 10px 70px 10px 69px;
-}
-
