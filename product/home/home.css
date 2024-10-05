@@ -1,21 +1,17 @@
-.fixed-container {
-    /* Никаких изменений для этого блока, как ты и просил */
-}
-
 .index-container {
     display: flex;
     flex-direction: column;
-    align-items: center; /* Центрирует все элементы по горизонтали */
-    justify-content: center; /* Центрирует все элементы по вертикали */
-    height: 100vh; /* Чтобы весь контент был по центру экрана */
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
 }
 
 .index__image-container {
     position: relative;
     display: flex;
-    justify-content: center; /* Центрирует изображение по горизонтали */
-    align-items: center; /* Центрирует содержимое по вертикали, если потребуется */
-    width: 100%; /* Ширина контейнера на всю страницу */
+    justify-content: center;
+    align-items: center;
+    width: 100%;
 }
 
 
@@ -26,9 +22,9 @@
 
 .index__image-props {
     position: absolute;
-    bottom: 0; /* Располагает текст внизу контейнера */
+    bottom: 0;
     left: 50%;
-    transform: translateX(-50%); /* Центрирует текст по горизонтали относительно изображения */
+    transform: translateX(-50%);
     text-align: center;
     color: #000;
     text-align: center;
